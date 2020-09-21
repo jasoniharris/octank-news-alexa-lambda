@@ -9,10 +9,11 @@ phases:
       - echo "Running Build Script..."
       - |-
           if [ "$branch" = "develop"  ]; then
-            echo "Branch is develop"
+            echo "Branch is develop"  
             node --check index.js
           else
             echo "Branch is master"
             echo "Stack name is ${stack}"
+            chmod +x deploy.sh
             ./deploy.sh
           fi
