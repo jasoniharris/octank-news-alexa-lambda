@@ -1,9 +1,8 @@
-AWSTemplateFormatVersion : '2010-09-09'
+AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Parameters:
   ROLE:
     Type: String
-
 Resources:
   octankNewsAlexaLambda:
     Type: AWS::Serverless::Function
@@ -11,8 +10,9 @@ Resources:
       FunctionName: octankNewsAlexaLambda
       Description: Return
       Handler: index.handler
-      CodeUri: ./index.js
+      CodeUri: s3://octank-news-alexa-lambda/962eb4dd3456d71e0aecd4408270fa14
       Runtime: nodejs10.x
       MemorySize: 128
       Timeout: 10
-      Role: !Ref ROLE
+      Role:
+        Ref: ROLE

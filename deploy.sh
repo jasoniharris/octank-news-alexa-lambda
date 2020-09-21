@@ -5,12 +5,12 @@ ROLE=`aws cloudformation describe-stacks --stack-name stack01 --query "Stacks[0]
 echo "ROLE is ${ROLE}"
 
 sam package \
-  --template-file template.yml \
-  --output-template-file package.yml \
+  --template-file templates/template.yaml \
+  --output-template-file package.yaml \
   --s3-bucket octank-news-alexa-lambda
 
 sam deploy \
-  --template-file package.yml \
+  --template-file package.yaml \
   --stack-name octank-news-alexa-lambda \
   --capabilities CAPABILITY_IAM \
   --parameter-overrides ROLE=$ROLE 
