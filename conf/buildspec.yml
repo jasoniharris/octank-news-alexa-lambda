@@ -14,5 +14,5 @@ phases:
           else
             echo "Branch is master"
             echo "Stack name is ${stack}"
-           # aws cloudformation deploy --template-file templates/infra.json --stack-name ${stack} --capabilities CAPABILITY_IAM --no-fail-on-empty-changeset
+           aws cloudformation deploy --template-file templates/infra.json --stack-name ${stack} --capabilities CAPABILITY_IAM --no-fail-on-empty-changeset
           fi
